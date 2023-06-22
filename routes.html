@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Routes</title>
+  <style>
+    body {
+      background-color: #222;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline;
+    }
+
+    nav ul li a {
+      color: #fff;
+      padding: 10px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      background-color: #555;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .route-list {
+      list-style: none;
+      padding: 0;
+      margin: 20px auto;
+      max-width: 500px;
+    }
+
+    .route-item {
+      background-color: #333;
+      border-radius: 4px;
+      padding: 10px;
+      margin-bottom: 10px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s, transform 0.4s;
+    }
+
+    .route-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .route-item.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .route-item a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="climbers.html">Top Climbers</a></li>
+        <li><a href="routes.html">Routes</a></li>
+        <li><a href="gear.html">Gear</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <h1>Routes - Climbing Routes</h1>
+
+  <ul class="route-list">
+    <li class="route-item"><a href="GenerousTurkey.png">Generous Turkey</a></li>
+    <li class="route-item"><a href="GenerousPigeon.png">Generous Pigeon</a></li>
+    <li class="route-item"><a href="GenerousAnteater.png">Generous Anteater</a></li>
+  </ul>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const routeItems = document.querySelectorAll('.route-item');
+
+      function animateRouteItems() {
+        routeItems.forEach(function(item, index) {
+          setTimeout(function() {
+            item.classList.add('show');
+          }, index * 200); // Adjust the delay here for smoother animation
+        });
+      }
+
+      animateRouteItems();
+    });
+  </script>
+</body>
+</html>
